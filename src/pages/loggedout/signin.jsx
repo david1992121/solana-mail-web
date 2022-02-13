@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import { Box, Stack, TextField, Typography } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
+import { connectWallet } from '../../store/actions';
 
 export function Signin(props) {
+  const [seed, setSeed] = useState('');
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.account.loading);
 
   const handleSignin = async () => {
+    await dispatch(connectWallet(seed));
     props.history.push('/mail/inbox');
   };
 
