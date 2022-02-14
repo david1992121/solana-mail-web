@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Box, Stack, TextField, Typography } from "@mui/material";
-import { LoadingButton } from "@mui/lab";
+import { Box, Stack, TextField, Typography } from '@mui/material';
+import { LoadingButton } from '@mui/lab';
 import { connectWallet } from '../../store/actions';
 
 export function Signin(props) {
@@ -15,24 +15,27 @@ export function Signin(props) {
   };
 
   return (
-    <Box sx={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      height: '100vh',
-      }}>
-      <Stack direction='column' justifyContent='center' alignItems='center' spacing={1}>
-        <Typography variant='h5'>Welcome to SolMail</Typography>
-        <Typography variant='caption'>Connect your wallet to signin</Typography>
-        <TextField
-          id='account-seed'
-          label='Account Seed'
-          required
-        />
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+      }}
+    >
+      <Stack
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        spacing={1}
+      >
+        <Typography variant="h5">Welcome to SolMail</Typography>
+        <Typography variant="caption">Connect your wallet to signin</Typography>
+        <TextField id="account-seed" label="Account Seed" required />
         <LoadingButton
-          variant='contained'
-          size='medium'
-          color='secondary'
+          variant="contained"
+          size="medium"
+          color="secondary"
           onClick={handleSignin}
         >
           Signin

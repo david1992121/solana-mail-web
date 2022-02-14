@@ -8,7 +8,7 @@ export function SendMail(props) {
 
   return (
     <Box
-      component='form'
+      component="form"
       sx={{
         display: 'flex',
         justifyContent: 'center',
@@ -16,7 +16,7 @@ export function SendMail(props) {
         height: { sm: 'calc(100vh - 64px)', xs: 'calc(100vh - 56px)' },
         '& .MuiTextField-root': { m: theme.spacing(1), width: '90%' },
       }}
-      autoComplete='off'
+      autoComplete="off"
     >
       <Paper
         sx={{
@@ -29,9 +29,9 @@ export function SendMail(props) {
         }}
         elevation={3}
       >
-        <TextField id='to-address' label='To' required />
-        <TextField id='subject' label='Subject' />
-        <TextField id='body' label='Body' multiline rows={15} required />
+        <TextField id="to-address" label="To" required />
+        <TextField id="subject" label="Subject" />
+        <TextField id="body" label="Body" multiline rows={15} required />
 
         <Box
           sx={{
@@ -41,11 +41,11 @@ export function SendMail(props) {
           }}
         >
           <LoadingButton
-            color='secondary'
-            variant='outlined'
-            type='submit'
+            color="secondary"
+            variant="outlined"
+            type="submit"
             startIcon={<SendIcon />}
-            loadingPosition='start'
+            loadingPosition="start"
           >
             Send
           </LoadingButton>

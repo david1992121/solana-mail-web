@@ -39,24 +39,28 @@ export class DataLength extends Assignable {
 
 const SCHEMA = new Map([
   [
-    Mail, {
-      kind: 'struct', fields: [
+    Mail,
+    {
+      kind: 'struct',
+      fields: [
         ['id', 'string'],
         ['fromAddress', 'string'],
         ['toAddress', 'string'],
         ['subject', 'string'],
         ['body', 'string'],
-        ['sentDate', 'string']
-      ]
-    }
+        ['sentDate', 'string'],
+      ],
+    },
   ],
   [
-    MailAccount, {
-      kind: 'struct', fields: [
+    MailAccount,
+    {
+      kind: 'struct',
+      fields: [
         ['inbox', [Mail]],
         ['sent', [Mail]],
-      ]
-    }
+      ],
+    },
   ],
   [DataLength, { kind: 'struct', fields: [['length', 'u32']] }],
 ]);

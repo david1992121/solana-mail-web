@@ -8,10 +8,10 @@ export function Inbox(props) {
     <Fragment>
       <MailTable data={[]} history={props.history} />
       <Fab
-        variant='extended'
-        size='large'
-        color='secondary'
-        aria-label='compose mail'
+        variant="extended"
+        size="large"
+        color="secondary"
+        aria-label="compose mail"
         onClick={() => props.history.push('send')}
         sx={{
           position: 'absolute',

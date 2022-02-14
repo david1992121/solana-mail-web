@@ -12,9 +12,9 @@ export function MailTableHead(props) {
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding='checkbox'>
+        <TableCell padding="checkbox">
           <Checkbox
-            color='primary'
+            color="primary"
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
             onChange={onSelectAllClick}
@@ -24,7 +24,7 @@ export function MailTableHead(props) {
           />
         </TableCell>
         {headCells.map((headCell) => (
-          <TableCell key={headCell.id} align='left' padding='normal'>
+          <TableCell key={headCell.id} align="left" padding="normal">
             {headCell.label}
           </TableCell>
         ))}

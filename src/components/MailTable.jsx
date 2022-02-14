@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { Box,
+import React, { useState } from 'react';
+import {
+  Box,
   Checkbox,
   Paper,
   Table,
@@ -8,9 +9,10 @@ import { Box,
   TablePagination,
   TableRow,
   TableContainer,
-  Typography } from "@mui/material";
+  Typography,
+} from '@mui/material';
 
-import { MailTableHead, MailToolbar } from ".";
+import { MailTableHead, MailToolbar } from '.';
 
 export function MailTable(props) {
   const { data } = props;
@@ -67,11 +69,20 @@ export function MailTable(props) {
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - data.length) : 0;
 
   return (
-    <Box sx={{ width: '100%', height: { sm: 'calc(100vh - 64px)', xs: 'calc(100vh - 56px)' } }}>
+    <Box
+      sx={{
+        width: '100%',
+        height: { sm: 'calc(100vh - 64px)', xs: 'calc(100vh - 56px)' },
+      }}
+    >
       <Paper sx={{ width: '100%' }}>
         <MailToolbar numSelected={selected.length} />
-        <TableContainer sx={{ height: { sm: 'calc(100vh - 180px)', xs: 'calc(100vh - 160px)' }}}>
-          <Table stickyHeader aria-label="sticky table" size='medium'>
+        <TableContainer
+          sx={{
+            height: { sm: 'calc(100vh - 180px)', xs: 'calc(100vh - 160px)' },
+          }}
+        >
+          <Table stickyHeader aria-label="sticky table" size="medium">
             <MailTableHead
               numSelected={selected.length}
               onSelectAllClick={handleSelectAllClick}
@@ -82,55 +93,63 @@ export function MailTable(props) {
               handleChangeRowsPerPage={handleChangeRowsPerPage}
             />
             <TableBody>
-              {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => {
-                const isItemSelected = isSelected(row.id);
-                const labelId = `enhanced-table-checkbox-${index}`;
+              {data
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row, index) => {
+                  const isItemSelected = isSelected(row.id);
+                  const labelId = `enhanced-table-checkbox-${index}`;
 
-                return (
-                  <TableRow
-                    hover
-                    role='checkbox'
-                    aria-checked={isItemSelected}
-                    tabIndex={-1}
-                    key={row.id}
-                    selected={isItemSelected}
-                  >
-                    <TableCell padding='checkbox'>
-                      <Checkbox
-                        color="primary"
-                        checked={isItemSelected}
-                        inputProps={{
-                          'aria-labelledby': labelId,
-                        }}
-                        onChange={event => handleChange(event, row.id)}
-                      />
-                    </TableCell>
-                    <TableCell
-                      component="th"
-                      id={labelId}
-                      scope="row"
-                      padding="checkbox"
-                      onClick={event => handleRowClick(row)}
+                  return (
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      aria-checked={isItemSelected}
+                      tabIndex={-1}
+                      key={row.id}
+                      selected={isItemSelected}
                     >
-                      <Typography sx={{
-                        textOverflow: 'ellipsis',
-                        overflow: 'hidden',
-                        width: { sm: 168, xs: 100 }
-                        }}
+                      <TableCell padding="checkbox">
+                        <Checkbox
+                          color="primary"
+                          checked={isItemSelected}
+                          inputProps={{
+                            'aria-labelledby': labelId,
+                          }}
+                          onChange={(event) => handleChange(event, row.id)}
+                        />
+                      </TableCell>
+                      <TableCell
+                        component="th"
+                        id={labelId}
+                        scope="row"
+                        padding="checkbox"
+                        onClick={(event) => handleRowClick(row)}
                       >
-                        {row.fromAddress}
-                      </Typography>
-                    </TableCell>
-                    <TableCell
-                      onClick={event => handleRowClick(row)}
-                    >
-                      <Typography sx={{ width: { sm: 800, xs: 250 }, overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
-                        {row.subject} - {row.body.substring(0, 90)}
-                      </Typography>
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
+                        <Typography
+                          sx={{
+                            textOverflow: 'ellipsis',
+                            overflow: 'hidden',
+                            width: { sm: 168, xs: 100 },
+                          }}
+                        >
+                          {row.fromAddress}
+                        </Typography>
+                      </TableCell>
+                      <TableCell onClick={(event) => handleRowClick(row)}>
+                        <Typography
+                          sx={{
+                            width: { sm: 800, xs: 250 },
+                            overflow: 'hidden',
+                            whiteSpace: 'nowrap',
+                            textOverflow: 'ellipsis',
+                          }}
+                        >
+                          {row.subject} - {row.body.substring(0, 90)}
+                        </Typography>
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
               {emptyRows > 0 && (
                 <TableRow
                   style={{

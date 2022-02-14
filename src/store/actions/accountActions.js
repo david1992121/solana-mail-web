@@ -16,7 +16,10 @@ export function connectWallet(seed) {
 
     try {
       const programId = getState().account.programId;
-      const { derivedAddress, wallet } = await createOrGetAccount(seed, programId);
+      const { derivedAddress, wallet } = await createOrGetAccount(
+        seed,
+        programId,
+      );
 
       dispatch(success({ derivedAddress, wallet }));
     } catch (error) {
@@ -41,12 +44,18 @@ async function createOrGetAccount(seed, programId) {
 
   await wallet.connect();
 
-  const derivedAddress = await PublicKey.createWithSeed(wallet.publicKey, seed, programId);
+  const derivedAddress = await PublicKey.createWithSeed(
+    wallet.publicKey,
+    seed,
+    programId,
+  );
 
   const mailAccount = await connection.getAccountInfo(derivedAddress);
 
   if (mailAccount === null) {
-    const lamports = await connection.getMinimumBalanceForRentExemption(1000000);
+    const lamports = await connection.getMinimumBalanceForRentExemption(
+      1000000,
+    );
 
     const createAccountInstruction = SystemProgram.createAccountWithSeed({
       fromPubkey: wallet.publicKey,

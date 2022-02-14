@@ -1,6 +1,9 @@
-import React from "react";
+import React from 'react';
 import { alpha, IconButton, Toolbar, Tooltip, Typography } from '@mui/material';
-import { Delete as DeleteIcon, FilterList as FilterListIcon } from '@mui/icons-material';
+import {
+  Delete as DeleteIcon,
+  FilterList as FilterListIcon,
+} from '@mui/icons-material';
 
 export function MailToolbar(props) {
   const { numSelected } = props;
@@ -12,8 +15,11 @@ export function MailToolbar(props) {
         pr: { xs: 1, sm: 1 },
         ...(numSelected > 0 && {
           bgcolor: (theme) =>
-            alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
-        })
+            alpha(
+              theme.palette.primary.main,
+              theme.palette.action.activatedOpacity,
+            ),
+        }),
       }}
     >
       {numSelected > 0 ? (

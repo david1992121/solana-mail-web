@@ -11,13 +11,13 @@ import {
   ListItemText,
   Toolbar,
   Link,
-  useTheme
+  useTheme,
 } from '@mui/material';
 import {
   Inbox as InboxIcon,
   Logout as LogoutIcon,
   Mail as MailIcon,
-  Menu as MenuIcon
+  Menu as MenuIcon,
 } from '@mui/icons-material';
 
 const drawerWidth = 240;
@@ -52,19 +52,25 @@ export function Navbar(props) {
           height: { sm: 64, xs: 48 },
         }}
       >
-        <img src={`${process.env.PUBLIC_URL}/logo.png`} style={{ maxHeight: '70%' }} alt='logo' />
+        <img
+          src={`${process.env.PUBLIC_URL}/logo.png`}
+          style={{ maxHeight: '70%' }}
+          alt="logo"
+        />
       </Toolbar>
       <Divider />
       <List>
         {menuItems.map((el, index) => (
           <Link
             to={el.link}
-            style={{ textDecoration: 'none', color: theme.palette.text.primary }}
+            style={{
+              textDecoration: 'none',
+              color: theme.palette.text.primary,
+            }}
             key={index}
             ref={(node) => (links.current[index] = node)}
           >
-            <ListItemButton
-              onClick={() => links.current[index].click()}>
+            <ListItemButton onClick={() => links.current[index].click()}>
               <ListItemIcon>{el.icon}</ListItemIcon>
               <ListItemText primary={el.name} />
             </ListItemButton>
@@ -75,7 +81,7 @@ export function Navbar(props) {
           <ListItemIcon>
             <LogoutIcon />
           </ListItemIcon>
-          <ListItemText primary='Logout' />
+          <ListItemText primary="Logout" />
         </ListItemButton>
       </List>
     </div>
@@ -85,12 +91,13 @@ export function Navbar(props) {
     setMobileOpen(!mobileOpen);
   };
 
-  const container = props.window !== undefined ? () => props.window().document.body : undefined;
+  const container =
+    props.window !== undefined ? () => props.window().document.body : undefined;
 
   return (
     <Box sx={{ display: 'flex' }}>
       <AppBar
-        position='fixed'
+        position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
@@ -98,9 +105,9 @@ export function Navbar(props) {
       >
         <Toolbar>
           <IconButton
-            color='inherit'
-            aria-label='open-drawer'
-            edge='start'
+            color="inherit"
+            aria-label="open-drawer"
+            edge="start"
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
@@ -109,34 +116,40 @@ export function Navbar(props) {
         </Toolbar>
       </AppBar>
       <Box
-      component='nav'
-      sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-      aria-label='mailbox folders'
-    >
-      <Drawer
-        container={container}
-        variant='temporary'
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        ModalProps={{ keepMounted: true }}
-        sx={{
-          display: { xs: 'block', sm: 'none' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-        }}
+        component="nav"
+        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+        aria-label="mailbox folders"
       >
-        {menu}
-      </Drawer>
-      <Drawer
-        variant='permanent'
-        sx={{
-          display: { xs: 'none', sm: 'block' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-        }}
-        open
-      >
-        {menu}
-      </Drawer>
-    </Box>
+        <Drawer
+          container={container}
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{ keepMounted: true }}
+          sx={{
+            display: { xs: 'block', sm: 'none' },
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              width: drawerWidth,
+            },
+          }}
+        >
+          {menu}
+        </Drawer>
+        <Drawer
+          variant="permanent"
+          sx={{
+            display: { xs: 'none', sm: 'block' },
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              width: drawerWidth,
+            },
+          }}
+          open
+        >
+          {menu}
+        </Drawer>
+      </Box>
     </Box>
   );
 }

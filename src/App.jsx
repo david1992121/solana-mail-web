@@ -15,8 +15,8 @@ function App() {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Routes>
-            <Route path='/' element={<Signin />} />
-            <Route path='/mail' element={<Main />} />
+            <Route path="/" element={<Signin />} />
+            <Route path="/mail" element={<Main />} />
           </Routes>
         </ThemeProvider>
       </Router>

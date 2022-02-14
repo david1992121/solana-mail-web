@@ -1,10 +1,10 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect } from 'react';
 // import { useDispatch, useSelector } from "react-redux";
-import { Fab } from "@mui/material";
-import { Edit as EditIcon } from "@mui/icons-material";
+import { Fab } from '@mui/material';
+import { Edit as EditIcon } from '@mui/icons-material';
 
 // import { getAccountData, setActivePage } from "../../store/actions";
-import { MailTable } from "../../components";
+import { MailTable } from '../../components';
 
 export function Sent(props) {
   // const dispatch = useDispatch();
@@ -24,18 +24,18 @@ export function Sent(props) {
       {/* <MailTable data={sent} navigation={props.history} /> */}
 
       <Fab
-        variant='extended'
-        size='large'
-        color='secondary'
-        aria-label='compose mail'
-        onClick={() => props.history.push('send', {from: 'sent'})}
+        variant="extended"
+        size="large"
+        color="secondary"
+        aria-label="compose mail"
+        onClick={() => props.history.push('send', { from: 'sent' })}
         sx={{
           position: 'absolute',
           bottom: 48,
           right: 16,
         }}
-        >
-        <EditIcon sx={{ mr: 1}} />
+      >
+        <EditIcon sx={{ mr: 1 }} />
         Send Mail
       </Fab>
     </Fragment>

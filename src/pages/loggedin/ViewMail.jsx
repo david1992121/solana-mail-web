@@ -27,7 +27,7 @@ export function ViewMail(props) {
         height: { sm: 'calc(100vh - 64px)', xs: 'calc(100vh - 56px)' },
         '& .MuiTypography-root': { m: 1, width: '90%' },
       }}
-      autoComplete='off'
+      autoComplete="off"
     >
       <Paper
         sx={{
@@ -39,7 +39,7 @@ export function ViewMail(props) {
         }}
         elevation={3}
       >
-        <Typography variant='h3'>subject</Typography>
+        <Typography variant="h3">subject</Typography>
 
         <List sx={{ width: '100%', p: 0 }}>
           <ListItem sx={{ p: 0, pl: 1 }}>
@@ -56,16 +56,20 @@ export function ViewMail(props) {
                     alignItems: 'center',
                   }}
                 >
-                  <Typography variant='subtitle2'>From Address</Typography>
-                  <Typography variant='caption'>{new Date().toLocaleDateString()}</Typography>
+                  <Typography variant="subtitle2">From Address</Typography>
+                  <Typography variant="caption">
+                    {new Date().toLocaleDateString()}
+                  </Typography>
                 </Box>
               }
-              secondary={<Typography variant='caption'>to Address</Typography>}
+              secondary={<Typography variant="caption">to Address</Typography>}
             />
           </ListItem>
         </List>
 
-        <Typography sx={{ textAlign: 'justify', overflowWrap: 'break-word' }}>body</Typography>
+        <Typography sx={{ textAlign: 'justify', overflowWrap: 'break-word' }}>
+          body
+        </Typography>
 
         <Box
           sx={{
@@ -75,10 +79,19 @@ export function ViewMail(props) {
             mb: 1,
           }}
         >
-          <Button color='secondary' variant='outlined' type='submit' startIcon={<ReplyIcon />}>
+          <Button
+            color="secondary"
+            variant="outlined"
+            type="submit"
+            startIcon={<ReplyIcon />}
+          >
             Reply
           </Button>
-          <Button color='secondary' variant='outlined' startIcon={<ForwardToInboxIcon />}>
+          <Button
+            color="secondary"
+            variant="outlined"
+            startIcon={<ForwardToInboxIcon />}
+          >
             Forward
           </Button>
         </Box>

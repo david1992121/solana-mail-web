@@ -23,10 +23,10 @@ export function Main(props) {
         }}
       >
         <Routes>
-          <Route path='/mail/inbox' component={<Inbox />} />
-          <Route path='/mail/sent' component={<Sent />} />
-          <Route path='/mail/send' component={<SendMail />} />
-          <Route path='/mail/view/:id' component={<ViewMail />} />
+          <Route path="/mail/inbox" component={<Inbox />} />
+          <Route path="/mail/sent" component={<Sent />} />
+          <Route path="/mail/send" component={<SendMail />} />
+          <Route path="/mail/view/:id" component={<ViewMail />} />
         </Routes>
       </Box>
     </Fragment>
